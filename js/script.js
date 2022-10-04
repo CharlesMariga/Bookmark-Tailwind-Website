@@ -1,5 +1,8 @@
 const tabs = document.querySelectorAll(".tab");
 const panels = document.querySelectorAll(".panel");
+const btn = document.getElementById("menu-btn");
+const menu = document.getElementById("menu");
+const logo = document.getElementById("logo");
 
 panels.forEach((panel, i) => {
   if (i !== 0) {
@@ -32,5 +35,18 @@ const onTabClick = (e) => {
     .classList.remove("hidden");
 };
 
-// Tabs menu event listener
+const navToggle = () => {
+  btn.classList.toggle("open");
+  menu.classList.toggle("flex");
+  menu.classList.toggle("hidden");
+
+  if (menu.classList.contains("flex")) {
+    logo.setAttribute("src", "images/logo-bookmark-footer.svg");
+  } else {
+    logo.setAttribute("src", "images/logo-bookmark.svg");
+  }
+};
+
+// Event listeners
 tabs.forEach((tab) => tab.addEventListener("click", onTabClick));
+btn.addEventListener("click", navToggle);
