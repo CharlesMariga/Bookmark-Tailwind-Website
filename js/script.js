@@ -1,6 +1,12 @@
 const tabs = document.querySelectorAll(".tab");
 const panels = document.querySelectorAll(".panel");
 
+panels.forEach((panel, i) => {
+  if (i !== 0) {
+    panel.classList.add("hidden");
+  }
+});
+
 // Event handlers
 const onTabClick = (e) => {
   // Deactivate all tabs
